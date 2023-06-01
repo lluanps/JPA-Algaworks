@@ -4,9 +4,26 @@ import com.luan.ecommerce.model.Produto;
 import org.junit.Assert;
 import org.junit.Test;
 
+import javax.sound.sampled.Port;
 import java.math.BigDecimal;
 
 public class OperacaoComTransacaoTest extends EntityManagerTest {
+
+    @Test
+    public void removerObjeto() {
+        Produto produto = entityManager.find(Produto.class, 3);
+
+        entityManager.getTransaction().begin();//inicia transação
+        entityManager.remove(produto);//remove objeto
+        entityManager.getTransaction().commit();//commita transação
+
+        /* entityManager.clear(); -- não é necessario  na asserção para operação de remoção */
+
+        Produto produtoVerificacao = entityManager.find(Produto.class, 3);
+        Assert.assertNull(produtoVerificacao);
+
+    }
+
 
     @Test
     public void inserirObjeto() {
