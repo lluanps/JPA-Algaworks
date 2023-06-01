@@ -61,7 +61,24 @@ public class OperacaoComTransacaoTest extends EntityManagerTest {
 
     }
 
+    @Test
+    public void inserirObjetoComMerge() {
+        Produto produto = new Produto();
 
+        produto.setId(4);
+        produto.setNome("Microfone at-2020");
+        produto.setDescricao("Microfone de gravação de studio");
+        produto.setPreco(new BigDecimal(550));
+
+        entityManager.getTransaction().begin();
+        entityManager.merge(produto);//usado tbm para atualizar e inserir
+        entityManager.getTransaction().commit();
+
+        entityManager.clear();
+
+        Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
+        Assert.assertNotNull(produtoVerificacao);
+    }
     @Test
     public void inserirObjeto() {
         Produto produto = new Produto();
