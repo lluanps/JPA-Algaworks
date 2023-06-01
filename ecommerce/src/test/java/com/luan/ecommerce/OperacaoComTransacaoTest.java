@@ -10,7 +10,22 @@ import java.math.BigDecimal;
 public class OperacaoComTransacaoTest extends EntityManagerTest {
 
     @Test
-    public void atualizarProjeto() {
+    public void atualizarObjetoGerenciado() {
+        Produto produto = entityManager.find(Produto.class, 1);
+
+        entityManager.getTransaction().begin();
+        produto.setNome("Kindle Papperwhite 2ª Geração");
+        entityManager.getTransaction().commit();
+
+        entityManager.clear();// limpa da memoria dados que foram armazenados (limpa dados feito pelo merge)
+
+        Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
+        Assert.assertEquals("Kindle Papperwhite 2ª Geração", produtoVerificacao.getNome());
+
+    }
+
+    @Test
+    public void atualizarObjeto() {
         Produto produto = new Produto();
 
         produto.setId(1);
