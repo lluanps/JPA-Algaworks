@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
 public class Estoque {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private Integer produtoId;

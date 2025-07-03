@@ -16,7 +16,7 @@ import lombok.EqualsAndHashCode;
 public class NotaFiscal {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private Integer pedidoId;

@@ -16,12 +16,12 @@ import lombok.EqualsAndHashCode;
 public class Cliente {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private String nome;
 
 	@Enumerated(EnumType.STRING)// guarda o nome, e nao a posição
-	private SexoCliente sexoCliente;	
+	private SexoCliente sexoCliente;
 	
 }
