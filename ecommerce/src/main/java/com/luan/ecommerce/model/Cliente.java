@@ -1,11 +1,14 @@
 package com.luan.ecommerce.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -23,5 +26,8 @@ public class Cliente {
 
 	@Enumerated(EnumType.STRING)// guarda o nome, e nao a posição
 	private SexoCliente sexoCliente;
+	
+	@OneToMany(mappedBy = "cliente")
+	private List<Pedido> pedido;
 	
 }
