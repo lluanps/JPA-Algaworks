@@ -1,6 +1,8 @@
 package com.luan.ecommerce.model;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 
 import lombok.Data;
@@ -16,6 +18,7 @@ public class Cliente {
 	
 	private String nome;
 
+	@Enumerated(EnumType.STRING)// guarda o nome, e nao a posição
 	private SexoCliente sexoCliente;	
 	
 }

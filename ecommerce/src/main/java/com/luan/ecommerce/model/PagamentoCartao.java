@@ -1,6 +1,8 @@
 package com.luan.ecommerce.model;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 
 import lombok.Data;
@@ -16,6 +18,7 @@ public class PagamentoCartao {
 	
 	private Integer pedidoId;
 	
+	@Enumerated(EnumType.STRING)
 	private StatusPagamento statusPagamento;
 	
 	private String numeroPagamentoCartao;

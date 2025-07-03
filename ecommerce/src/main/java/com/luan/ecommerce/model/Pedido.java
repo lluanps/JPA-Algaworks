@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 
 import lombok.Data;
@@ -25,6 +27,7 @@ public class Pedido {
 	
 	private BigDecimal total;
 	
+	@Enumerated(EnumType.STRING)
 	private StatusPedido status;
 	
 	
