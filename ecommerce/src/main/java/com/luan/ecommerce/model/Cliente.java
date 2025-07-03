@@ -3,6 +3,8 @@ package com.luan.ecommerce.model;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.Data;
@@ -14,6 +16,7 @@ import lombok.EqualsAndHashCode;
 public class Cliente {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer id;
 	
 	private String nome;

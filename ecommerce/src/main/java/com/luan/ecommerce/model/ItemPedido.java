@@ -3,6 +3,8 @@ package com.luan.ecommerce.model;
 import java.math.BigDecimal;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.Data;
@@ -14,6 +16,7 @@ import lombok.EqualsAndHashCode;
 public class ItemPedido {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer id;
 	
 	private Integer pedidoId;
