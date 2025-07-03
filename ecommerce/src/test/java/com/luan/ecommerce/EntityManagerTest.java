@@ -1,11 +1,10 @@
 package com.luan.ecommerce;
 
-import com.luan.ecommerce.model.Produto;
-import org.junit.*;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
+import org.junit.jupiter.api.*;
 
 public class EntityManagerTest {
 
@@ -13,23 +12,23 @@ public class EntityManagerTest {
 
     protected EntityManager entityManager;
 
-    @BeforeClass
+    @BeforeAll
     public static void setUpBeforeClass() {
         entityManagerFactory = Persistence
                 .createEntityManagerFactory("Ecommerce-PU");
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDownAfterClass() {
         entityManagerFactory.close();
     }
 
-    @Before
+    @BeforeEach
     public void setUp() {
         entityManager = entityManagerFactory.createEntityManager();
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         entityManager.close();
     }

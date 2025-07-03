@@ -2,8 +2,10 @@ package com.luan.ecommerce.iniciandoJpa;
 
 import com.luan.ecommerce.EntityManagerTest;
 import com.luan.ecommerce.model.Produto;
-import org.junit.Assert;
-import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 
 public class ConsultandoRegistrosTest extends EntityManagerTest {
 
@@ -15,8 +17,8 @@ public class ConsultandoRegistrosTest extends EntityManagerTest {
 
         System.out.println(">> " + produto.getNome());
 
-        Assert.assertNotNull(produto);
-        Assert.assertEquals("Kindle", produto.getNome());
+        assertNotNull(produto);
+        assertEquals("Kindle", produto.getNome());
     }
 
     @Test
@@ -31,6 +33,6 @@ public class ConsultandoRegistrosTest extends EntityManagerTest {
 
         System.out.println(">>>> " + produto.getNome());
 
-        Assert.assertEquals("Kindle", produto.getNome());
+        assertEquals("Kindle", produto.getNome());
     }
 }

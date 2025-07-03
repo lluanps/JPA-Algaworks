@@ -1,11 +1,12 @@
 package com.luan.ecommerce;
 
-import com.luan.ecommerce.model.Produto;
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-import javax.sound.sampled.Port;
 import java.math.BigDecimal;
+
+import org.junit.jupiter.api.Test;
+
+import com.luan.ecommerce.model.Produto;
 
 public class OperacaoComTransacaoTest extends EntityManagerTest {
 
@@ -20,7 +21,7 @@ public class OperacaoComTransacaoTest extends EntityManagerTest {
         entityManager.clear();// limpa da memoria dados que foram armazenados (limpa dados feito pelo merge)
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assert.assertEquals("Kindle Papperwhite 2ª Geração", produtoVerificacao.getNome());
+        assertEquals("Kindle Papperwhite 2ª Geração", produtoVerificacao.getNome());
 
     }
 
@@ -41,8 +42,8 @@ public class OperacaoComTransacaoTest extends EntityManagerTest {
         entityManager.clear();// limpa da memoria dados que foram armazenados (limpa dados feito pelo merge)
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assert.assertNotNull(produtoVerificacao);
-        Assert.assertEquals("Kindle Papperwhite", produtoVerificacao.getNome());
+        assertNotNull(produtoVerificacao);
+        assertEquals("Kindle Papperwhite", produtoVerificacao.getNome());
 
     }
 
@@ -57,7 +58,7 @@ public class OperacaoComTransacaoTest extends EntityManagerTest {
         /* entityManager.clear(); -- não é necessario  na asserção para operação de remoção */
 
         Produto produtoVerificacao = entityManager.find(Produto.class, 3);
-        Assert.assertNull(produtoVerificacao);
+        assertNull(produtoVerificacao);
 
     }
 
@@ -77,7 +78,7 @@ public class OperacaoComTransacaoTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assert.assertNotNull(produtoVerificacao);
+        assertNotNull(produtoVerificacao);
     }
     @Test
     public void inserirObjeto() {
@@ -96,7 +97,7 @@ public class OperacaoComTransacaoTest extends EntityManagerTest {
         entityManager.clear();
 
         Produto produtoVerificacao = entityManager.find(Produto.class, produto.getId());
-        Assert.assertNotNull(produtoVerificacao);
+        assertNotNull(produtoVerificacao);
     }
 
 
