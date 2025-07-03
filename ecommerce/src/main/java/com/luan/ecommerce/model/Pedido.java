@@ -3,6 +3,7 @@ package com.luan.ecommerce.model;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -29,6 +30,9 @@ public class Pedido {
 	
 	@Enumerated(EnumType.STRING)
 	private StatusPedido status;
+	
+	@Embedded
+	private EnderecoEntregaPedido enderecoEntrega;
 	
 	
 }
