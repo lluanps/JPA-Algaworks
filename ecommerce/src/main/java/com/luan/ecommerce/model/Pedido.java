@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -27,10 +28,13 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@Column(name = "data_pedido")
 	private LocalDateTime dataPedido;
 	
+	@Column(name = "data_conclusao")
 	private LocalDateTime dataConclusao;
 	
+	@Column(name = "nota_fiscal_id")
 	private Integer notaFiscalId;
 	
 	private BigDecimal total;
@@ -39,6 +43,7 @@ public class Pedido {
 	private StatusPedido status;
 	
 	@Embedded
+	@Column(name = "endereco_entrega")
 	private EnderecoEntregaPedido enderecoEntrega;
 	
 	@ManyToOne
