@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -52,5 +53,12 @@ public class Pedido {
 	
 	@OneToMany(mappedBy = "pedido")
 	private List<ItemPedido> itemPedido;
+
+    @OneToOne(mappedBy = "pedido")
+    private Pagamento pagamento;
+
+    public boolean isPago() {
+        return StatusPedido.PAGO.equals(status);
+    }
 	
 }

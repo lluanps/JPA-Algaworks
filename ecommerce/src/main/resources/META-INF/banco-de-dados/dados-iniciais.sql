@@ -1,9 +1,42 @@
-insert into Produto (id, nome, preco, descricao) values (1, 'Kindle', 499.0, 'Conheça o novo Kindle, agora com iluminação embutida ajustável, que permite que você leia em ambientes abertos ou fechados, a qualquer hora do dia.');
-insert into Produto (id, nome, preco, descricao) values (3, 'Celular', 2000.0, 'Inovaçãoe praticidade em um só aparelho');
+insert into produto (id, nome, preco, data_criacao, descricao) 
+values (1, 'Kindle', 499.0, CURRENT_TIMESTAMP - interval '1 day', 
+        'Conheça o novo Kindle, agora com iluminação embutida ajustável, que permite que você leia em ambientes abertos ou fechados, a qualquer hora do dia.');
 
-insert into Cliente (id, nome) values (1, 'Fernando Medeiros');
-insert into Cliente (id, nome) values (2, 'Marcos Mariano');
+insert into produto (id, nome, preco, data_criacao, descricao) 
+values (3, 'Câmera GoPro Hero 7', 1400.0, CURRENT_TIMESTAMP - interval '1 day', 
+        'Desempenho 2x melhor.');
 
-insert into pedido (id, cliente_id, data_pedido, total, status) values (1, 1, CURRENT_TIMESTAMP, 100.0, 'AGUARDANDO');
+insert into cliente (id, nome, cpf) 
+values (1, 'Fernando Medeiros', '000');
 
-insert into item_pedido (id, pedido_id, produto_id, preco_produto, quantidade) values (1, 1, 1, 5.0, 2);
+insert into cliente (id, nome, cpf) 
+values (2, 'Marcos Mariano', '111');
+
+insert into cliente_detalhe (cliente_id, sexo, data_nascimento) 
+values (1, 'MASCULINO', CURRENT_TIMESTAMP - interval '27 year');
+
+insert into cliente_detalhe (cliente_id, sexo, data_nascimento) 
+values (2, 'MASCULINO', CURRENT_TIMESTAMP - interval '30 year');
+
+insert into pedido (id, cliente_id, data_criacao, total, status) 
+values (1, 1, CURRENT_TIMESTAMP - interval '5 day', 2398.0, 'AGUARDANDO');
+
+insert into pedido (id, cliente_id, data_criacao, total, status) 
+values (2, 1, CURRENT_TIMESTAMP, 499.0, 'AGUARDANDO');
+
+insert into item_pedido (pedido_id, produto_id, preco_produto, quantidade) 
+values (1, 1, 499, 2);
+
+insert into item_pedido (pedido_id, produto_id, preco_produto, quantidade) 
+values (1, 3, 1400, 1);
+
+insert into item_pedido (pedido_id, produto_id, preco_produto, quantidade) 
+values (2, 1, 499, 1);
+
+insert into pagamento (pedido_id, status, tipo_pagamento, numero_cartao, codigo_barras) 
+values (2, 'PROCESSANDO', 'cartao', '123', null);
+
+insert into categoria (id, nome) values (1, 'Eletrodomésticos');
+insert into categoria (id, nome) values (2, 'Livros');
+
+insert into produto_categoria (produto_id, categoria_id) values (1, 2);
