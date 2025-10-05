@@ -1,6 +1,6 @@
 package com.luan.ecommerce.mapeamentoBasico;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

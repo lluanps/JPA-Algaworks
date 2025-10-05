@@ -1,6 +1,6 @@
 package com.luan.ecommerce.relacionamentos;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
