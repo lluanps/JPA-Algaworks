@@ -1,5 +1,6 @@
 package com.luan.ecommerce.jpql;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -7,15 +8,15 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
-import org.checkerframework.checker.units.qual.t;
 import org.junit.jupiter.api.Test;
 
 import com.luan.ecommerce.EntityManagerTest;
+import com.luan.ecommerce.dto.ProdutoDTO;
 import com.luan.ecommerce.model.Cliente;
 import com.luan.ecommerce.model.Pedido;
 
 //JPQL
-public class BasicoJPQLTest  extends EntityManagerTest {
+public class BasicoJPQLTest extends EntityManagerTest {
 	
 	@Test
 	public void buscarPorIdentificador() {
@@ -53,9 +54,19 @@ public class BasicoJPQLTest  extends EntityManagerTest {
 		
 		assertTrue(list.get(0).length == 2);
 		
-		list.forEach(arr -> System.out.print(arr[0] + ", " + arr[1]));
+		list.forEach(arr -> System.out.println(arr[0] + ", " + arr[1]));
 		
 	}
 	
+	public void projetarNoDTO() {
+		String jpql = "select new com.luan.ecommerce.dto.ProdutoDTO(id, nome) from Produto";// funciona tbm
+ 
+		TypedQuery<ProdutoDTO> typedQuery = entityManager.createQuery(jpql, ProdutoDTO.class);
+		List<ProdutoDTO> produtoDTOs = typedQuery.getResultList();
+		
+		assertFalse(produtoDTOs.isEmpty());
+		
+		produtoDTOs.forEach(p -> System.out.println(p.getId() + ", " + p.getNome()));
+	}
 	
 }
