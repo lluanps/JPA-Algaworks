@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
+import org.checkerframework.checker.units.qual.t;
 import org.junit.jupiter.api.Test;
 
 import com.luan.ecommerce.EntityManagerTest;
@@ -41,5 +42,20 @@ public class BasicoJPQLTest  extends EntityManagerTest {
 		
 		assertTrue(Cliente.class.equals(listCliente.get(0).getClass()));
 	}
+	
+	@Test
+	public void projetarOResultado() {
+//		String jpql = "select p.id, p.nome from Produto p";
+		String jpql = "select id, nome from Produto";// funciona tbm
+		
+		TypedQuery<Object[]> typedQuery = entityManager.createQuery(jpql, Object[].class);
+		List<Object[]> list = typedQuery.getResultList();
+		
+		assertTrue(list.get(0).length == 2);
+		
+		list.forEach(arr -> System.out.print(arr[0] + ", " + arr[1]));
+		
+	}
+	
 	
 }
