@@ -13,6 +13,7 @@ import com.luan.ecommerce.EntityManagerTest;
 import com.luan.ecommerce.model.Cliente;
 import com.luan.ecommerce.model.Pedido;
 
+//JPQL
 public class BasicoJPQLTest  extends EntityManagerTest {
 	
 	@Test
